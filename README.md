@@ -16,7 +16,7 @@ This project studies how Gym control agents behave when selected observation dim
 
 Clean LunarLander run:
 
-![Clean LunarLander](assets/lunar_lander_without_imposter.gif)
+![Clean LunarLander run](assets/clean-lunar-lander-run.gif)
 
 Perturbed LunarLander run:
 
