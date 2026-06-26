@@ -26,10 +26,6 @@ BipedalWalker rollout:
 
 ![BipedalWalker rollout](assets/bipedal_walker.gif)
 
-Reward summary:
-
-![BipedalWalker reward summary](assets/step_rewards_plot_with_mean_eval32.png)
-
 ## Highlights
 
 - Evaluates adversarial/noisy observations in LunarLander and BipedalWalker environments.
