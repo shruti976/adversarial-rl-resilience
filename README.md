@@ -1,51 +1,40 @@
 # Adversarial Resilience in RL Systems
 
-Entropy-driven feature selection for diagnosing robustness failures in reinforcement learning agents under adversarial sensor perturbations.
+**Diagnosing which observations make a reinforcement-learning agent brittle — and how it fails when those signals are corrupted.**
 
-## Overview
-
-This project studies how Gym control agents behave when selected observation dimensions are corrupted or removed. The core idea is to use entropy-style feature analysis to identify vulnerable state channels, then compare robustness under clean, noisy, and adversarial observation settings.
+RL agents often look robust on average yet collapse when a few observation channels are noised or adversarially perturbed. This project uses entropy-based feature analysis to (1) rank the state dimensions a trained policy depends on most and (2) measure how behavior degrades when those dimensions are attacked, across the **LunarLander** and **BipedalWalker** control tasks.
 
 ## Demo
 
-```html
-<video src="assets/adversarial-rl-resilience-demo.mp4" controls width="100%"></video>
-```
+![Clean, adversarial, and BipedalWalker rollouts](assets/adv-demo.gif)
 
-## Visual Results
+▶️ [Watch the demo as MP4](assets/adversarial-rl-resilience-demo.mp4)
 
-Clean LunarLander run:
+*Left → right: a clean LunarLander run, the same policy under adversarial ("imposter") observations, and a BipedalWalker rollout.*
 
-![Clean LunarLander run](assets/clean-lunar-lander-run.gif)
+## Results
 
-Perturbed LunarLander run:
-
-![Perturbed LunarLander](assets/lunar_lander_imposter4.gif)
-
-BipedalWalker rollout:
+| Clean policy | Adversarial / perturbed observations |
+| :---: | :---: |
+| ![Clean LunarLander](assets/clean-lunar-lander-run.gif) | ![Perturbed LunarLander](assets/lunar_lander_imposter4.gif) |
 
 ![BipedalWalker rollout](assets/bipedal_walker.gif)
 
-## Highlights
+- Entropy and joint-entropy rankings identify the observation channels a policy is most sensitive to.
+- KL-divergence between clean and perturbed action distributions quantifies behavioral drift under attack.
+- Robustness is treated as a measurable, diagnosable property — not just a single average-return number.
 
-- Evaluates adversarial/noisy observations in LunarLander and BipedalWalker environments.
-- Compares entropy, joint-entropy, and KL-divergence style robustness signals.
-- Includes trajectory visualizations, training curves, and experiment notebooks.
-- Frames robustness as a diagnosable system property rather than only a final score.
+## Approach
 
-## Tech Stack
+- **Environments:** OpenAI Gym control tasks (LunarLander, BipedalWalker).
+- **Feature analysis:** per-dimension entropy / joint-entropy to locate brittle state channels.
+- **Perturbation model:** targeted noise and "imposter" corruption of selected observation dimensions.
+- **Evaluation:** clean vs. noisy vs. adversarial rollouts, return curves, and action-distribution divergence.
 
-Python, Gym, reinforcement learning, NumPy/Pandas, Matplotlib, notebook-based experiments.
+## Tech stack
 
-## Repository Structure
+Python · OpenAI Gym · NumPy / Pandas · Matplotlib · notebook-based experiments
 
-```text
-assets/       Demo video, GIFs, and selected figures
-notebooks/    Cleaned experiment notebooks
-src/          Reusable analysis utilities
-results/      Small public summary tables and plots
-```
+---
 
-## Notes
-
-This repo should include only curated notebooks, selected figures, and reproducible scripts. Keep duplicate checkpoints, raw scratch files, and large intermediate videos out of GitHub.
+*Curated results showcase for a reinforcement-learning robustness study. Full training and evaluation code available on request.*
