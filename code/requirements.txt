@@ -1,0 +1,15 @@
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+seaborn
+gym
+gymnasium
+Box2D
+stable-baselines3
+shap
+imageio
+moviepy
+pygame
+pillow
